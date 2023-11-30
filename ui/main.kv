@@ -1,0 +1,129 @@
+#:kivy 1.0
+
+MDScreen:
+    name: 'main'
+
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        Image:
+            source: "ui/image.png"
+            size_hint: None, None
+            width: "500dp"
+            height: "700dp"
+
+        MDLabel:
+            padding: "100dp"
+            text: 'Misthemorth'
+            size_hint_y: None
+            width: root.width
+            pos_hint: {'top': 0.98}
+            markup: True
+            valign: 'top'
+            halign: 'center'
+            color: 0, 0, 0, 1
+            font_size: 30
+            font_name: 'ARIAL'
+
+        # MDLabel:
+        #     spacing: '10dp'
+        #     padding: "100dp"
+        #     text: "أهلا"
+        #     valign: 'top'
+        #     size_hint_y: None
+        #     width: root.width
+        #     pos_hint: {'top': 0.89}
+        #     markup: True
+        #     valign: 'top'
+        #     halign: 'center'
+        #     color: 0, 0, 0, 1
+        #     font_size: 20
+        #     font_name: 'ARIAL1'
+
+        MDRaisedButton:
+            size_hint: 0.7, 0.05
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            size: '50dp', '50dp'
+            text: 'Arabe to Amazigh'
+            font_size: '22dp'
+            md_bg_color: 0.259, 0.439, 1
+            text_color: 1, 1, 1, 1
+            font_name: 'ARIAL1'
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = "page1"
+
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 255, 1  # Border color
+                Line:
+                    width: 2
+                RoundedRectangle:
+                    pos: self.x, self.y
+                    size: self.width, self.height
+                    radius: [5, 5, 5, 5]
+
+        MDRaisedButton:
+            size_hint: 0.7, 0.05
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            size: '50dp', '50dp'
+            text: 'Amazigh to Arabe'
+            font_size: '22dp'
+            font_name: 'ARIAL1'
+            md_bg_color: 0.859, 0.051, 0.106
+            text_color: 1, 1, 1, 1
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = "page2"
+            canvas.before:
+                Color:
+                    rgba: 255, 0, 0, 0.8  # Border color
+                Line:
+                    width: 2
+                RoundedRectangle:
+                    pos: self.x, self.y
+                    size: self.width, self.height
+                    radius: [5, 5, 5, 5]
+
+        MDRaisedButton:
+            size_hint: 0.7, 0.05
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size: '50dp', '50dp'
+            text: 'Amazigh to signes'
+            font_size: '22dp'
+            font_name: 'ARIAL1'
+            md_bg_color: 0.91, 0.745, 0.024
+            text_color: 1, 1, 1, 1
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = "page3"
+            canvas.before:
+                Color:
+                    rgba: 255, 0, 0, 0.8  # Border color
+                Line:
+                    width: 2
+                RoundedRectangle:
+                    pos: self.x, self.y
+                    size: self.width, self.height
+                    radius: [5, 5, 5, 5]
+
+        # MDRaisedButton:
+        #     size_hint: 0.7, 0.05
+        #     pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+        #     size: '50dp', '50dp'
+        #     text: 'hand signs 2 AR/am1'
+        #     font_size: '22dp'
+        #     font_name: 'ARIAL1'
+        #     md_bg_color: 0.035, 0.431, 0.027
+        #     text_color: 1, 1, 1, 1
+        #     on_release:
+        #         root.manager.transition.direction = 'left'
+        #         root.manager.current = "page4"
+        #     canvas.before:
+        #         Color:
+        #             rgba: 255, 215, 0, 1  # Border color
+        #         Line:
+        #             width: 2
+        #         RoundedRectangle:
+        #             pos: self.x, self.y
+        #             size: self.width, self.height
+        #             radius: [5, 5, 5, 5]

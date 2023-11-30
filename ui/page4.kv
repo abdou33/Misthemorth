@@ -1,0 +1,25 @@
+#:kivy 1.0
+
+<Page4>:
+    BoxLayout:
+        name: "page4"
+        MDFloatLayout:
+            md_bg_color: 1, 1, 1, 1
+            MDIconButton:
+                icon: "arrow-left"
+                pos_hint: {"center_y": 0.95}
+                user_font_size: "30sp"
+                theme_text_color: 'Custom'
+                text_color: 0, 0, 0, 1
+                on_release:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = "main"
+
+            BoxLayout:
+                orientation: 'vertical'  # Corrected indentation
+
+                BoxLayout:
+                    id: camera_box
+                    size_hint_y: None
+                    height: 480  # Adjust the height based on your camera resolution
+

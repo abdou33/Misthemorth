@@ -1,0 +1,75 @@
+#:kivy 1.0
+
+MDScreen:
+    name: "page1"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            MDIconButton:
+                icon: "arrow-left"
+                pos_hint: {"center_y": 0.95, "center_x": 0.85}
+                user_font_size: "30sp"
+                theme_text_color: 'Custom'
+                text_color: 0, 0, 0, 1
+                on_release:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = "main"
+
+            MDLabel:
+                text: "Your Text Here"
+                halign: 'center'
+                font_size: "20sp"
+                size_hint_y: None
+                height: self.texture_size[1]
+                pos_hint: {"center_y": 0.95, "center_x": 0.85}
+
+        BoxLayout:
+            pos_hint: {"center_y": 0.62}
+            # pos_hint: {'center_x': 0.01, 'center_y': 0.8}
+            id: chat_container1
+            orientation: 'vertical'
+            spacing: 10
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: "10dp"
+            padding: "10dp"
+
+            MDTextFieldRect:
+                id: ARuser_input
+                hint_text: "Enter text"
+                size_hint: 0.1, 0.08
+                pos_hint: {'center_x': 0.01, 'center_y':0.05}
+                user_font_size: "16sp"
+                font_name: 'ARIAL1'
+                markup: True
+                multiline: False
+
+            MDFloatingActionButton:
+                icon: 'microphone'
+                pos_hint: {'center_x': 0.01, 'center_y': 0.05}
+                on_release: app.on_mic_button_press('page1',  '1', "chat_container1", "ar", "fr", "am2")
+                md_bg_color: 0.259, 0.439, 1
+
+            MDRaisedButton:
+                height: "40dp"
+                pos_hint: {'center_x': 0.01, 'center_y':0.05}
+                text: 'envoyer'
+                font_size: '14dp'
+                font_name: 'ARIAL1'
+                md_bg_color: 0.259, 0.439, 1
+                text_color: 1, 1, 1, 1
+                on_release: app.search_word(ARuser_input.text, 'page1', "chat_container1", "ar", "fr", "am2")
+
+                canvas.before:
+                    Color:
+                        rgba: 255, 215, 0, 1  # Border color
+                    Line:
+                        width: 2
+                    RoundedRectangle:
+                        pos: self.x, self.y
+                        size: self.width, self.height
+                        radius: [4, 4, 4, 4]

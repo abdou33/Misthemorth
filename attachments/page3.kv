@@ -1,0 +1,13 @@
+MDScreen:
+    name: "page3"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y": 0.95}  # Corrected typo in pos_hint
+            user_font_size: "30sp"
+            theme_text_color: 'Custom'  # Corrected typo in theme_text_color
+            text_color: 0,0,0,1
+            on_release:
+                root.manager.transition.direction = 'right'
+                root.manager.current = "main"
